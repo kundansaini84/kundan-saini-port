@@ -1,8 +1,13 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Mail, Linkedin, Github, Instagram, Twitter } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { toast } from '../components/ui/sonner';
 
 const ContactSection = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  
   useEffect(() => {
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal');
@@ -26,6 +31,50 @@ const ContactSection = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    // Get form field values
+    const name = formRef.current.name.value.trim();
+    const email = formRef.current.email.value.trim();
+    const message = formRef.current.message.value.trim();
+    
+    // Form validation
+    if (!name || !email || !message) {
+      toast.error('Please fill out all fields');
+      return;
+    }
+    
+    // Email validation using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Send email using EmailJS
+    try {
+      await emailjs.sendForm(
+        'service_3o3ib8c', 
+        'template_b6kzibq', 
+        formRef.current, 
+        '54fwVWsJJsAVhkm_U'
+      );
+      
+      toast.success('Message sent successfully!');
+      formRef.current.reset();
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      toast.error('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const socialLinks = [
     { 
@@ -110,7 +159,7 @@ const ContactSection = () => {
               
               <div className="p-8 md:p-12">
                 <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                <form className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Your Name
@@ -118,6 +167,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="name" 
+                      name="user_name"
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="John Doe"
                     />
@@ -130,6 +180,7 @@ const ContactSection = () => {
                     <input 
                       type="email" 
                       id="email" 
+                      name="user_email"
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="john@example.com"
                     />
@@ -141,6 +192,7 @@ const ContactSection = () => {
                     </label>
                     <textarea 
                       id="message" 
+                      name="message"
                       rows={4} 
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="Your message here..."
@@ -149,9 +201,10 @@ const ContactSection = () => {
                   
                   <button 
                     type="submit" 
-                    className="btn-primary w-full btn-bounce"
+                    className="btn-primary w-full btn-bounce flex justify-center items-center"
+                    disabled={isLoading}
                   >
-                    Send Message
+                    {isLoading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>
