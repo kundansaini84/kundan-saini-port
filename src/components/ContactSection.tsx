@@ -37,10 +37,19 @@ const ContactSection = () => {
 
     if (!formRef.current) return;
 
-    // Get form field values
-    const name = formRef.current.name.value.trim();
-    const email = formRef.current.email.value.trim();
-    const message = formRef.current.message.value.trim();
+    // Get form field values using the elements property
+    const nameInput = formRef.current.elements.namedItem('user_name') as HTMLInputElement;
+    const emailInput = formRef.current.elements.namedItem('user_email') as HTMLInputElement;
+    const messageInput = formRef.current.elements.namedItem('message') as HTMLTextAreaElement;
+    
+    if (!nameInput || !emailInput || !messageInput) {
+      toast.error('Form fields not found');
+      return;
+    }
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
     
     // Form validation
     if (!name || !email || !message) {
