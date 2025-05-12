@@ -53,7 +53,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="bg-gray-50">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-portfolio-teal mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -62,20 +62,20 @@ const ContactSection = () => {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="reveal bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="reveal bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="bg-portfolio-navy text-white p-8 md:p-12">
                 <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <div className="w-10 h-10 rounded-full bg-portfolio-teal bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-portfolio-teal bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0 animate-pulse-slow">
                       <Mail size={20} className="text-portfolio-teal" />
                     </div>
                     <div>
                       <p className="text-gray-300 text-sm">Email</p>
                       <a 
                         href="mailto:kundansaini339@gmail.com" 
-                        className="hover:text-portfolio-teal transition-colors duration-200"
+                        className="hover:text-portfolio-teal transition-colors duration-200 hover:underline"
                       >
                         kundansaini339@gmail.com
                       </a>
@@ -118,7 +118,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="name" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="John Doe"
                     />
                   </div>
@@ -130,7 +130,7 @@ const ContactSection = () => {
                     <input 
                       type="email" 
                       id="email" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -142,14 +142,14 @@ const ContactSection = () => {
                     <textarea 
                       id="message" 
                       rows={4} 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-teal focus:border-transparent transition-all duration-300"
                       placeholder="Your message here..."
                     ></textarea>
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="btn-primary w-full"
+                    className="btn-primary w-full btn-bounce"
                   >
                     Send Message
                   </button>

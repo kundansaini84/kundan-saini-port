@@ -30,7 +30,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="bg-white">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-portfolio-teal mx-auto"></div>
         </div>
@@ -55,9 +55,9 @@ const AboutSection = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex">
+            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex card-hover">
               <div className="mr-4">
-                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white">
+                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white transition-transform duration-300 hover:scale-110">
                   <GraduationCap size={24} />
                 </div>
               </div>
@@ -69,10 +69,10 @@ const AboutSection = () => {
               </div>
             </div>
             
-            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex">
+            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex card-hover">
               <div className="mr-4">
-                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white">
-                  <Code size={24} />
+                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white transition-transform duration-300 hover:scale-110">
+                  <Code size={24} className="btn-shake" />
                 </div>
               </div>
               <div>
@@ -83,9 +83,9 @@ const AboutSection = () => {
               </div>
             </div>
             
-            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex">
+            <div className="reveal bg-gray-50 p-6 rounded-lg shadow-sm flex card-hover">
               <div className="mr-4">
-                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white">
+                <div className="w-12 h-12 bg-portfolio-navy rounded-full flex items-center justify-center text-white transition-transform duration-300 hover:scale-110">
                   <Briefcase size={24} />
                 </div>
               </div>

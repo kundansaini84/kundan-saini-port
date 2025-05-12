@@ -53,7 +53,7 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="bg-gray-50">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Portfolio</h2>
           <div className="w-20 h-1 bg-portfolio-teal mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -63,18 +63,18 @@ const PortfolioSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="reveal project-card flex flex-col h-full">
+            <div key={project.id} className="reveal project-card flex flex-col h-full animate-pulse-slow">
               <div className="relative overflow-hidden" style={{ height: '240px' }}>
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-portfolio-navy bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <div className="space-x-4">
                     <a 
                       href={project.demoLink} 
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-portfolio-navy hover:bg-portfolio-teal hover:text-white transition-colors duration-200"
+                      className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-portfolio-navy hover:bg-portfolio-teal hover:text-white transition-all duration-200 hover:scale-110"
                       title="View Demo"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -83,7 +83,7 @@ const PortfolioSection = () => {
                     </a>
                     <a 
                       href={project.codeLink} 
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-portfolio-navy hover:bg-portfolio-teal hover:text-white transition-colors duration-200"
+                      className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-portfolio-navy hover:bg-portfolio-teal hover:text-white transition-all duration-200 hover:scale-110"
                       title="View Code"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -99,14 +99,14 @@ const PortfolioSection = () => {
                 <p className="text-gray-600 mb-4 flex-1">{project.longDescription}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                    <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full transition-all duration-300 hover:bg-portfolio-teal hover:text-white">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <a 
                   href={project.demoLink} 
-                  className="flex items-center text-portfolio-navy hover:text-portfolio-teal transition-colors duration-200 font-medium"
+                  className="flex items-center text-portfolio-navy hover:text-portfolio-teal transition-colors duration-200 font-medium hover:translate-x-1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

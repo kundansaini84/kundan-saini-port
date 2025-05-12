@@ -101,11 +101,11 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-portfolio-navy text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium;
+    @apply px-6 py-3 bg-portfolio-navy text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
   }
 
   .btn-outline {
-    @apply px-6 py-3 border border-portfolio-navy text-portfolio-navy rounded-lg hover:bg-portfolio-navy hover:text-white transition-all duration-200 font-medium;
+    @apply px-6 py-3 border border-portfolio-navy text-portfolio-navy rounded-lg hover:bg-portfolio-navy hover:text-white transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
   }
   
   .gradient-text {
@@ -113,10 +113,82 @@
   }
 
   .project-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300;
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:translate-y-[-8px];
   }
 
   .social-link {
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-portfolio-light border border-gray-200 text-portfolio-dark hover:border-portfolio-teal hover:text-portfolio-teal transition-colors duration-200;
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-portfolio-light border border-gray-200 text-portfolio-dark hover:border-portfolio-teal hover:text-portfolio-teal hover:scale-110 transition-all duration-200;
   }
+  
+  /* New animations */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px];
+  }
+  
+  .skill-card {
+    @apply transition-all duration-300 hover:bg-gray-100 hover:shadow-md;
+  }
+  
+  .btn-bounce:hover {
+    animation: bounce 0.5s;
+  }
+  
+  .hover-rotate {
+    @apply transition-all duration-300 hover:rotate-3;
+  }
+  
+  .hover-scale {
+    @apply transition-all duration-300 hover:scale-105;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.btn-shake:hover {
+  animation: shake 0.5s ease-in-out;
 }

@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="text-xl font-bold">
+            <a href="#" className="text-xl font-bold hover:text-portfolio-teal transition-colors duration-300">
               Kundan<span className="text-portfolio-teal">Saini</span>
             </a>
             <p className="text-gray-400 mt-2">Full-Stack & WordPress Developer</p>
@@ -24,10 +24,10 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-end">
             <button 
               onClick={scrollToTop}
-              className="bg-portfolio-teal bg-opacity-20 p-3 rounded-full mb-4 hover:bg-opacity-30 transition-all duration-300"
+              className="bg-portfolio-teal bg-opacity-20 p-3 rounded-full mb-4 hover:bg-opacity-70 transition-all duration-300 hover:scale-110"
               aria-label="Scroll to top"
             >
-              <ChevronUp size={20} />
+              <ChevronUp size={20} className="animate-pulse-slow" />
             </button>
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Kundan Saini. All rights reserved.
