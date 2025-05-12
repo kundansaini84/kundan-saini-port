@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221 83% 11%;
+    --primary: 262 83% 58%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 174 84% 56%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 326 73% 60%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 174 70% 45%;
+    --accent: 158 64% 40%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 262 83% 58%;
 
     --radius: 0.5rem;
 
@@ -89,11 +89,11 @@
 
 @layer components {
   .nav-link {
-    @apply relative px-2 py-1 text-portfolio-dark hover:text-portfolio-accent transition-colors duration-200 cursor-pointer;
+    @apply relative px-2 py-1 text-portfolio-dark hover:text-modern-primary transition-colors duration-200 cursor-pointer;
   }
   
   .nav-link::after {
-    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-portfolio-teal transition-all duration-300 ease-in-out;
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-modern-primary transition-all duration-300 ease-in-out;
   }
   
   .nav-link:hover::after {
@@ -101,15 +101,15 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-portfolio-navy text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
+    @apply px-6 py-3 bg-modern-primary text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
   }
 
   .btn-outline {
-    @apply px-6 py-3 border border-portfolio-navy text-portfolio-navy rounded-lg hover:bg-portfolio-navy hover:text-white transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
+    @apply px-6 py-3 border border-modern-primary text-modern-primary rounded-lg hover:bg-modern-primary hover:text-white transition-all duration-200 font-medium hover:translate-y-[-3px] hover:shadow-md;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-portfolio-navy to-portfolio-teal bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-modern-primary via-modern-secondary to-modern-accent bg-clip-text text-transparent;
   }
 
   .project-card {
@@ -117,10 +117,55 @@
   }
 
   .social-link {
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-portfolio-light border border-gray-200 text-portfolio-dark hover:border-portfolio-teal hover:text-portfolio-teal hover:scale-110 transition-all duration-200;
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-portfolio-light border border-gray-200 text-portfolio-dark hover:border-modern-primary hover:text-modern-primary hover:scale-110 transition-all duration-200;
   }
   
-  /* New animations */
+  /* New components with modern UI/UX colors */
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/70 border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  .gradient-border {
+    @apply relative rounded-lg p-[1px] bg-gradient-modern;
+  }
+  
+  .gradient-border > * {
+    @apply rounded-[inherit] bg-white;
+  }
+  
+  .modern-badge {
+    @apply px-3 py-1 text-xs font-medium rounded-full;
+  }
+  
+  .modern-badge-primary {
+    @apply bg-modern-primary/10 text-modern-primary;
+  }
+  
+  .modern-badge-secondary {
+    @apply bg-modern-secondary/10 text-modern-secondary;
+  }
+  
+  .modern-badge-accent {
+    @apply bg-modern-accent/10 text-modern-accent;
+  }
+  
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::after {
+    @apply content-[''] absolute inset-0 rounded-[inherit] z-[-1] opacity-0 transition-opacity duration-300 bg-modern-primary blur-xl;
+  }
+  
+  .glow-effect:hover::after {
+    @apply opacity-30;
+  }
+  
+  .animate-gradient {
+    @apply bg-gradient-modern bg-size-200 animate-gradient-shift;
+  }
+  
+  /* Keep existing animations */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px];
   }
@@ -191,4 +236,28 @@
 
 .btn-shake:hover {
   animation: shake 0.5s ease-in-out;
+}
+
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
+/* New modern UI effects */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-button {
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  --gradient-start: theme('colors.modern.primary');
+  --gradient-end: theme('colors.modern.secondary');
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.frosted-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }

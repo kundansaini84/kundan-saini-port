@@ -69,6 +69,25 @@ export default {
 					accent: '#38B2AC',
 					light: '#F8FAFC',
 					dark: '#1E293B',
+					purple: '#8B5CF6',
+					indigo: '#6366F1',
+					pink: '#EC4899',
+					orange: '#F97316',
+					emerald: '#10B981',
+					sky: '#0EA5E9'
+				},
+				modern: {
+					primary: '#8B5CF6',
+					secondary: '#EC4899',
+					accent: '#10B981',
+					neutral: '#F8FAFC',
+					"neutral-content": '#1E293B',
+					info: '#0EA5E9',
+					success: '#10B981',
+					warning: '#F97316',
+					error: '#EF4444',
+					light: '#F1F5F9',
+					dark: '#0F172A'
 				}
 			},
 			borderRadius: {
@@ -92,17 +111,35 @@ export default {
 				'slide-in': {
 					from: { transform: 'translateX(-20px)', opacity: '0' },
 					to: { transform: 'translateX(0)', opacity: '1' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 0 0 rgba(79, 209, 197, 0)' },
+					'50%': { boxShadow: '0 0 20px 5px rgba(79, 209, 197, 0.4)' }
+				},
+				'gradient-shift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'slide-in': 'slide-in 0.5s ease-out forwards'
+				'slide-in': 'slide-in 0.5s ease-out forwards',
+				'pulse-glow': 'pulse-glow 2s infinite',
+				'gradient-shift': 'gradient-shift 3s ease infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				heading: ['Poppins', 'sans-serif']
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'gradient-modern': 'linear-gradient(to right, #8B5CF6, #EC4899, #10B981)',
+				'hero-pattern': 'linear-gradient(to bottom right, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.7)), url("/hero-bg.jpg")',
+				'section-pattern': 'linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)'
 			}
 		}
 	},
