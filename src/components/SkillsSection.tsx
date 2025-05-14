@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const SkillsSection = () => {
@@ -45,8 +44,6 @@ const SkillsSection = () => {
     { name: "Tailwind CSS", level: 70 },
     { name: "WordPress", level: 75 },
     { name: "WooCommerce", level: 70 },
-    { name: "VS Code", level: 80 },
-    { name: "GitHub", level: 70 },
     { name: "Canva", level: 75 },
   ];
 
