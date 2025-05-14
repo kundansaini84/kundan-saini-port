@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ExternalLink, Code, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -37,8 +36,8 @@ const PortfolioSection = () => {
       longDescription: "A fully responsive platform for sending digital wedding and party invitations. Users can customize invitations with various designs, colors, and content.",
       image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1470&auto=format&fit=crop",
       technologies: ["HTML", "CSS", "JavaScript"],
-      demoLink: "https://example.com/demo1",
-      codeLink: "https://github.com/example/project1"
+      demoLink: "https://github.com/kundansaini84/joyfull-invits",
+      codeLink: "https://github.com/kundansaini84/joyfull-invits"
     },
     {
       id: 2,
@@ -47,8 +46,8 @@ const PortfolioSection = () => {
       longDescription: "A colorful and animated calculator designed specifically for kids. Features sound effects, animations, and a child-friendly interface to make learning math fun.",
       image: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?q=80&w=1470&auto=format&fit=crop",
       technologies: ["HTML", "CSS", "JavaScript"],
-      demoLink: "https://example.com/demo2",
-      codeLink: "https://github.com/example/project2"
+      demoLink: "https://github.com/kundansaini84/FunCalc-Kids-Calculator",
+      codeLink: "https://github.com/kundansaini84/FunCalc-Kids-Calculator"
     }
   ];
 
