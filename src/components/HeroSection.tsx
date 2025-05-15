@@ -55,7 +55,7 @@ const HeroSection = () => {
             <div className="relative animate-float">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-portfolio-teal shadow-xl mx-auto hover-rotate">
                 <img 
-                  src="https://i.postimg.cc/W4y9L6jq/IMG-20250514-104649-2.jpg"
+                  src="/lovable-uploads/caefc069-0767-47ed-b43a-0c1e7061b1d0.png"
                   alt="Kundan Saini"
                   className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
                 />
