@@ -42,13 +42,14 @@ const Navigation = () => {
     { text: 'About', id: 'about' },
     { text: 'Portfolio', id: 'portfolio' },
     { text: 'Skills', id: 'skills' },
+    { text: 'Resume', id: 'resume' },
     { text: 'Contact', id: 'contact' },
   ];
 
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'py-3 bg-white shadow-md' : 'py-5 bg-transparent'
+        isScrolled ? 'py-2 bg-white shadow-md' : 'py-4 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
@@ -59,11 +60,11 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-4 lg:space-x-6">
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <div
-                    className="nav-link"
+                    className="nav-link text-sm lg:text-base px-2 py-1"
                     onClick={() => scrollToSection(link.id)}
                   >
                     {link.text}
@@ -75,7 +76,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-portfolio-navy"
+            className="md:hidden text-portfolio-navy p-1"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -85,12 +86,12 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 animate-fade-in">
-            <ul className="flex flex-col items-center space-y-4">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-2 animate-fade-in">
+            <ul className="flex flex-col items-center space-y-2">
               {navLinks.map((link) => (
                 <li key={link.id} className="w-full text-center">
                   <div
-                    className="block py-2 hover:bg-gray-100 w-full"
+                    className="block py-3 hover:bg-gray-100 w-full transition-colors duration-200"
                     onClick={() => scrollToSection(link.id)}
                   >
                     {link.text}

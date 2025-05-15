@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { ExternalLink, Code, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -52,20 +53,20 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="bg-gradient-to-b from-modern-light to-white py-20">
+    <section id="portfolio" className="bg-gradient-to-b from-modern-light to-white py-16 md:py-20">
       <div className="section-container">
-        <div className="text-center mb-16 reveal">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">My Portfolio</h2>
-          <div className="w-20 h-1 bg-gradient-modern mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-12 md:mb-16 reveal">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 gradient-text">My Portfolio</h2>
+          <div className="w-16 md:w-20 h-1 bg-gradient-modern mx-auto mb-4 md:mb-6"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto px-4 md:px-0">
             Here are some of my recent projects that showcase my skills and expertise in web development.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4 md:px-0">
           {projects.map((project) => (
             <div key={project.id} className="reveal glass-card flex flex-col h-full hover-scale">
-              <div className="relative overflow-hidden rounded-t-xl" style={{ height: '240px' }}>
+              <div className="relative overflow-hidden rounded-t-xl" style={{ height: '180px', minHeight: '180px' }}>
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -77,16 +78,16 @@ const PortfolioSection = () => {
                       <HoverCardTrigger asChild>
                         <a 
                           href={project.demoLink} 
-                          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-modern-primary hover:bg-modern-primary hover:text-white transition-all duration-200 hover:scale-110 glow-effect"
+                          className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-modern-primary hover:bg-modern-primary hover:text-white transition-all duration-200 hover:scale-110 glow-effect"
                           title="View Demo"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Eye size={20} />
+                          <Eye size={18} />
                         </a>
                       </HoverCardTrigger>
-                      <HoverCardContent className="w-48">
-                        <p className="text-sm">View live demo</p>
+                      <HoverCardContent className="w-40">
+                        <p className="text-xs md:text-sm">View live demo</p>
                       </HoverCardContent>
                     </HoverCard>
                     
@@ -94,28 +95,28 @@ const PortfolioSection = () => {
                       <HoverCardTrigger asChild>
                         <a 
                           href={project.codeLink} 
-                          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-modern-primary hover:bg-modern-primary hover:text-white transition-all duration-200 hover:scale-110 glow-effect"
+                          className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-modern-primary hover:bg-modern-primary hover:text-white transition-all duration-200 hover:scale-110 glow-effect"
                           title="View Code"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Code size={20} />
+                          <Code size={18} />
                         </a>
                       </HoverCardTrigger>
-                      <HoverCardContent className="w-48">
-                        <p className="text-sm">View source code</p>
+                      <HoverCardContent className="w-40">
+                        <p className="text-xs md:text-sm">View source code</p>
                       </HoverCardContent>
                     </HoverCard>
                   </div>
                 </div>
               </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mb-2 gradient-text">{project.title}</h3>
-                <p className="text-modern-primary font-medium mb-3">{project.description}</p>
-                <p className="text-gray-600 mb-4 flex-1">{project.longDescription}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="p-4 md:p-6 flex-1 flex flex-col">
+                <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 gradient-text">{project.title}</h3>
+                <p className="text-modern-primary font-medium text-sm md:text-base mb-2 md:mb-3">{project.description}</p>
+                <p className="text-gray-600 text-sm mb-3 md:mb-4 flex-1">{project.longDescription}</p>
+                <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
                   {project.technologies.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-modern-light text-modern-dark text-sm rounded-full transition-all duration-300 hover:bg-modern-primary hover:text-white">
+                    <span key={index} className="px-2 md:px-3 py-1 bg-modern-light text-modern-dark text-xs md:text-sm rounded-full transition-all duration-300 hover:bg-modern-primary hover:text-white">
                       {tech}
                     </span>
                   ))}
@@ -123,14 +124,14 @@ const PortfolioSection = () => {
                 <Button 
                   variant="link" 
                   asChild 
-                  className="p-0 h-auto text-modern-primary hover:text-modern-secondary flex items-center transition-all duration-200 hover:translate-x-1"
+                  className="p-0 h-auto text-modern-primary hover:text-modern-secondary flex items-center transition-all duration-200 hover:translate-x-1 text-sm md:text-base"
                 >
                   <a 
                     href={project.demoLink} 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View Project <ExternalLink size={16} className="ml-2" />
+                    View Project <ExternalLink size={14} className="ml-1 md:ml-2" />
                   </a>
                 </Button>
               </div>
