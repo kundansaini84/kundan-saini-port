@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -42,7 +41,6 @@ const Navigation = () => {
     { text: 'About', id: 'about' },
     { text: 'Portfolio', id: 'portfolio' },
     { text: 'Skills', id: 'skills' },
-    { text: 'Resume', id: 'resume' },
     { text: 'Contact', id: 'contact' },
   ];
 
